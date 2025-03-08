@@ -33,6 +33,7 @@ body {
     box-shadow: 0 0 1rem rgb(0,0,0,0.5);
     font-size: 8vmin;
     color: red;
+    background-color: #ffffc7;
 }
 
 #reset-btn {
@@ -42,4 +43,28 @@ body {
     color: white;
     border-radius: 1rem;
     border: none
+}
+
+#new-game-btn {
+    padding: 1rem;
+    font-size: 1.25rem;
+    background-color: black;
+    color: white;
+    border-radius: 1rem;
+    border: none
+}
+
+#msg {
+    font-size: 6vmin;
+    margin-bottom: 2rem;
+}
+
+.msg-container {
+    align-items: center;
+    gap: 5rem; 
+    margin-top: 2rem;
+}
+
+.hide {
+    display: none;
 }

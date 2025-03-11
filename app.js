@@ -31,11 +31,29 @@ boxes.forEach((box)=>{
         }
         box.disabled = true;
 
-        checkWinner()
+        isWinner = checkWinner()
+        
+        if(!isWinner){
+            checkDraw();
+        }
     })
 })
 
+const checkDraw = () =>{
+    count = 0
+    for(box of boxes){
+        if(box.innerText !=""){
+            count ++;
+        }
+    }
+
+    if(count==9){
+        showDraw();
+    }
+}
+
 const checkWinner = ()=>{
+    winner = false 
     for(pattern of winPatterns){
         pos1Value = boxes[pattern[0]].innerText;
         pos2Value= boxes[pattern[1]].innerText;
@@ -44,9 +62,18 @@ const checkWinner = ()=>{
         if(pos1Value !=="" && pos2Value !=="" && pos3Value !==""){
             if(pos1Value == pos2Value && pos2Value == pos3Value){
                 showWinner(pos1Value)
+                return true
             }
         }
     }
+    return winner
+}
+
+const showDraw = ()=>{
+    msg.innerText = "It's a Draw!"
+    msgContainer.classList.remove("hide");
+    disableBoxes();
+
 }
 
 const showWinner = (winner) =>{

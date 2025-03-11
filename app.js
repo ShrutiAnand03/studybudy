@@ -4,7 +4,7 @@ let newGameBtn = document.querySelector("#new-game-btn");
 let msgContainer = document.querySelector(".msg-container");
 let msg = document.querySelector("#msg")
 
-let turn0 = true;
+let turnX = true;
 
 const winPatterns = [
     [0, 1, 2],
@@ -19,13 +19,14 @@ const winPatterns = [
 
 boxes.forEach((box)=>{
     box.addEventListener('click', ()=>{
-        if(turn0){
-            box.innerText="O";
-            turn0 = false;
+        if(turnX){
+            box.innerText="X";
+            box.style.color = "green"
+            turnX = false;
         }
         else{
-            box.innerText="X";
-            turn0=true;
+            box.innerText="O";
+            turnX=true;
         }
         box.disabled = true;
 
@@ -67,7 +68,7 @@ const enableBoxes = () =>{
     }
 }
 const resetGame = () =>{
-    turn0 = true;
+    turnX = true;
     enableBoxes();
     msgContainer.classList.add("hide");
 }
